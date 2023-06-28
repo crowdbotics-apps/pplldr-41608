@@ -25,7 +25,9 @@ const Screen = () => {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Support / Send Feedback</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI19");
+    }}>
         <Text style={styles.buttonText}>Invite a Team Member</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
