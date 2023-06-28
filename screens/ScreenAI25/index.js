@@ -1,3 +1,5 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
 const data = [{
@@ -30,18 +32,9 @@ const badges = [{
   image: 'https://tinyurl.com/42evm3m3'
 } // Add more badges here
 ];
-const users = [{
-  id: '1',
-  name: 'John Doe',
-  profileImage: 'https://tinyurl.com/42evm3m3'
-}, {
-  id: '2',
-  name: 'Jane Smith',
-  profileImage: 'https://tinyurl.com/42evm3m3'
-} // Add more users here
-];
 
 const Screen = () => {
+  const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -65,9 +58,11 @@ const Screen = () => {
 
   const renderBadgeItem = ({
     item
-  }) => <Image source={{
-    uri: item.image
-  }} style={styles.badgeImage} />;
+  }) => <Pressable onPress={() => {
+    navigation.navigate("ScreenAI22");
+  }}><Image source={{
+      uri: item.image
+    }} style={styles.badgeImage} /></Pressable>;
 
   const renderUserItem = ({
     item
@@ -78,10 +73,10 @@ const Screen = () => {
       <Text style={styles.userName}>{item.name}</Text>
     </TouchableOpacity>;
 
-  const handleMaterialPress = url => {// Open the learning material URL in a web browser
+  const handleMaterialPress = () => {// Open the learning material URL in a web browser
   };
 
-  const handleUserPress = userId => {// Handle user press event, e.g., navigate to user profile screen
+  const handleUserPress = () => {// Handle user press event, e.g., navigate to user profile screen
   };
 
   return <View style={styles.container}>
@@ -97,7 +92,9 @@ const Screen = () => {
 
       <FlatList data={badges} keyExtractor={item => item.id} renderItem={renderBadgeItem} horizontal showsHorizontalScrollIndicator={false} style={styles.badgesList} />
 
-      <Text style={styles.sectionHeading}>My Team Members</Text>
+      <Pressable onPress={() => {
+      navigation.navigate("ScreenAI21");
+    }}><Text style={styles.sectionHeading}>My Team Members</Text></Pressable>
 
       <View style={styles.searchContainer}>
         <TextInput style={styles.searchInput} placeholder="Search" value={searchText} onChangeText={setSearchText} onSubmitEditing={handleSearch} />

@@ -37,7 +37,9 @@ const UserProfileScreen = () => {
       <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany} />
       <TextInput style={styles.input} placeholder="Job Title" value={jobTitle} onChangeText={setJobTitle} />
       <TextInput style={styles.input} placeholder="Employment Date" value={employmentDate} onChangeText={setEmploymentDate} />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI24");
+    }}>
         <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
     </ScrollView>;
