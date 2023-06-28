@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const Screen = () => {
+  const navigation = useNavigation();
   return <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Questionnaire</Text>
@@ -25,9 +28,11 @@ const Screen = () => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Badges</Text>
         <View style={styles.badgeContainer}>
-          <Image style={styles.badgeImage} source={{
-          uri: 'https://tinyurl.com/42evm3m3'
-        }} />
+          <Pressable onPress={() => {
+          navigation.navigate("ScreenAI22");
+        }}><Image style={styles.badgeImage} source={{
+            uri: 'https://tinyurl.com/42evm3m3'
+          }} /></Pressable>
           <Image style={styles.badgeImage} source={{
           uri: 'https://tinyurl.com/42evm3m3'
         }} />
@@ -37,7 +42,9 @@ const Screen = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI21");
+    }}>
         <Text style={styles.buttonText}>My Team Members</Text>
       </TouchableOpacity>
     </View>;
