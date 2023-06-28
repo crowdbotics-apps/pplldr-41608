@@ -48,7 +48,9 @@ const Screen = () => {
       <Text style={styles.attributeName}>{item.attribute}</Text>
       <Text style={styles.attributeScore}>Average Score: {item.averageScore}</Text>
       <Text style={styles.attributeScore}>Your Score: {item.userScore}</Text>
-    </View>;
+    <Pressable onPress={() => {
+      navigation.navigate("ScreenAI20");
+    }}><Text style={styles.zmJiculA}>{"Settings\n"}</Text></Pressable></View>;
 
   const renderLearningMaterialItem = ({
     item
@@ -194,6 +196,13 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontSize: 16
+  },
+  zmJiculA: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
   }
 });
 export default Screen;
