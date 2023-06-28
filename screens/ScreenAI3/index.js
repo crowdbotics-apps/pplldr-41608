@@ -1,21 +1,29 @@
+import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const AppInfoScreen = () => {
+  const navigation = useNavigation();
   return <View style={styles.container}>
       <Image source={{
       uri: 'https://tinyurl.com/42evm3m3'
     }} style={styles.logo} />
       <Text style={styles.title}>App Name</Text>
       <Text style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquet tincidunt, nunc nunc tincidunt urna, id lacinia nunc nunc id nunc.</Text>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI7");
+    }}>
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
       <View style={styles.linksContainer}>
-        <TouchableOpacity style={styles.linkButton}>
+        <TouchableOpacity style={styles.linkButton} onPress={() => {
+        navigation.navigate("ScreenAI5");
+      }}>
           <Text style={styles.linkText}>Terms and Conditions</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.linkButton}>
+        <TouchableOpacity style={styles.linkButton} onPress={() => {
+        navigation.navigate("ScreenAI4");
+      }}>
           <Text style={styles.linkText}>Privacy Policy</Text>
         </TouchableOpacity>
       </View>
