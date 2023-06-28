@@ -1,12 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 const PaymentScreen = () => {
+  const navigation = useNavigation();
   return <View style={styles.container}>
       <Text style={styles.amountText}>Amount to be Paid:</Text>
       <Text style={styles.amount}>$100.00</Text>
       <View style={styles.cardContainer}>
-        <TouchableOpacity style={styles.cardOption}>
+        <TouchableOpacity style={styles.cardOption} onPress={() => {
+        navigation.navigate("ScreenAI17");
+      }}>
           <Image source={{
           uri: 'https://tinyurl.com/42evm3m3'
         }} style={styles.cardImage} />
