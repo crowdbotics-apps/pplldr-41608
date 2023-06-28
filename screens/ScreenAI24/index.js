@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState } from 'react';
 import { View, Text, TextInput, Slider, Button, StyleSheet } from 'react-native';
 
 const AttributeScreen = () => {
+  const navigation = useNavigation();
   const [grades, setGrades] = useState({});
 
   const handleSliderChange = (attribute, value) => {
@@ -34,7 +37,9 @@ const AttributeScreen = () => {
         <TextInput style={styles.input} keyboardType="numeric" value={grades['attribute2'] ? grades['attribute2'].toString() : ''} onChangeText={value => handleInputChange('attribute2', value)} />
       </View>
       <Button title="Submit" onPress={handleSubmit} />
-    </View>;
+    <Pressable onPress={() => {
+      navigation.navigate("ScreenAI15");
+    }}><Text style={styles.gATkLMcU}>{"Submit"}</Text></Pressable></View>;
 };
 
 const styles = StyleSheet.create({
@@ -64,6 +69,13 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 4,
     padding: 8
+  },
+  gATkLMcU: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
   }
 });
 export default AttributeScreen;
