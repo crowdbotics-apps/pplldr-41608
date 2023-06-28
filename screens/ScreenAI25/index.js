@@ -81,7 +81,9 @@ const Screen = () => {
   const handleUserPress = () => {// Handle user press event, e.g., navigate to user profile screen
   };
 
-  return <View style={styles.container}>
+  return <Pressable onPress={() => {
+    navigation.navigate("ScreenAI10");
+  }}><View style={styles.container}>
       <Text style={styles.heading}>Questionnaire</Text>
 
       <FlatList data={data} keyExtractor={item => item.id} renderItem={renderAttributeItem} style={styles.attributeList} />
@@ -95,8 +97,8 @@ const Screen = () => {
       <FlatList data={badges} keyExtractor={item => item.id} renderItem={renderBadgeItem} horizontal showsHorizontalScrollIndicator={false} style={styles.badgesList} />
 
       <Pressable onPress={() => {
-      navigation.navigate("ScreenAI21");
-    }}><Text style={styles.sectionHeading}>My Team Members</Text></Pressable>
+        navigation.navigate("ScreenAI21");
+      }}><Text style={styles.sectionHeading}>My Team Members</Text></Pressable>
 
       <View style={styles.searchContainer}>
         <TextInput style={styles.searchInput} placeholder="Search" value={searchText} onChangeText={setSearchText} onSubmitEditing={handleSearch} />
@@ -106,7 +108,7 @@ const Screen = () => {
       </View>
 
       <FlatList data={searchResults} keyExtractor={item => item.id} renderItem={renderUserItem} style={styles.usersList} />
-    </View>;
+    </View></Pressable>;
 };
 
 const styles = StyleSheet.create({
