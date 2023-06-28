@@ -9,9 +9,6 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleLogin = () => {// Handle login logic here
-  };
-
   const handleCheck = () => {
     setIsChecked(!isChecked);
   };
@@ -25,7 +22,9 @@ const LoginScreen = () => {
 
       <TextInput style={styles.input} placeholder="Password" secureTextEntry value={password} onChangeText={setPassword} />
 
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI11");
+    }}>
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
 
