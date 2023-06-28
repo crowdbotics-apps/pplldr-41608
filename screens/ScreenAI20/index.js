@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const Screen = () => {
+  const navigation = useNavigation();
   return <View style={styles.container}>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Edit Profile</Text>
@@ -15,7 +17,9 @@ const Screen = () => {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Terms and Conditions</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI211");
+    }}>
         <Text style={styles.buttonText}>Change Password</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
