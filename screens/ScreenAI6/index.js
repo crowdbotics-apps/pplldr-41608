@@ -1,18 +1,15 @@
+import { Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isChecked, setIsChecked] = useState(false);
 
   const handleLogin = () => {// Handle login logic here
-  };
-
-  const handleSignUp = () => {// Handle sign up logic here
-  };
-
-  const handleForgotPassword = () => {// Handle forgot password logic here
   };
 
   const handleCheck = () => {
@@ -32,11 +29,15 @@ const LoginScreen = () => {
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI81");
+    }}>
         <Text style={styles.buttonText}>Create Account</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.forgotPasswordButton} onPress={handleForgotPassword}>
+      <TouchableOpacity style={styles.forgotPasswordButton} onPress={() => {
+      navigation.navigate("ScreenAI8");
+    }}>
         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
       </TouchableOpacity>
 
@@ -58,7 +59,11 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         <Text style={styles.checkboxText}>
-          I agree to the <Text style={styles.linkText}>Terms and Conditions</Text> and <Text style={styles.linkText}>Privacy Policy</Text>
+          I agree to the <Pressable onPress={() => {
+          navigation.navigate("ScreenAI5");
+        }}><Text style={styles.linkText}>Terms and Conditions</Text></Pressable> and <Pressable onPress={() => {
+          navigation.navigate("ScreenAI4");
+        }}><Text style={styles.linkText}>Privacy Policy</Text></Pressable>
         </Text>
       </View>
     </View>;

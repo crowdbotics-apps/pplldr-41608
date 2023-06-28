@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, StyleSheet } from 'react-native';
 
 const UserProfileScreen = () => {
+  const navigation = useNavigation();
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [bio, setBio] = useState('');
@@ -11,9 +14,11 @@ const UserProfileScreen = () => {
   const [jobTitle, setJobTitle] = useState('');
   const [employmentDate, setEmploymentDate] = useState('');
   return <ScrollView contentContainerStyle={styles.container}>
-      <Image source={{
-      uri: 'https://tinyurl.com/42evm3m3'
-    }} style={styles.image} />
+      <Pressable onPress={() => {
+      navigation.navigate("ScreenAI9");
+    }}><Image source={{
+        uri: 'https://tinyurl.com/42evm3m3'
+      }} style={styles.image} /></Pressable>
       <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
       <TextInput style={styles.input} placeholder="Address" value={address} onChangeText={setAddress} />
       <TextInput style={styles.input} placeholder="Bio" value={bio} onChangeText={setBio} multiline />
